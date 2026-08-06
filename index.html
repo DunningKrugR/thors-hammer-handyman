@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ryan Overfield — reliable handyman services for basic home repairs. Thor's Hammer Handyman.">
+  <title>Thor's Hammer Handyman | Ryan Overfield</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #141414;
+      --bg-card: #1e1e1e;
+      --bg-elevated: #262626;
+      --silver: #c8c8c8;
+      --silver-bright: #e8e8e8;
+      --silver-dim: #8a8a8a;
+      --accent: #a8b4c0;
+      --border: #3a3a3a;
+      --gradient-metal: linear-gradient(135deg, #d4d4d4 0%, #9a9a9a 45%, #e0e0e0 55%, #b0b0b0 100%);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--silver);
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--silver-bright);
+    }
+
+    a {
+      color: var(--silver-bright);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    a:hover {
+      color: #fff;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(20, 20, 20, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      gap: 1rem;
+    }
+
+    .logo-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-link img {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+    }
+
+    .logo-text {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--silver-bright);
+      line-height: 1.2;
+    }
+
+    .logo-text span {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: var(--silver-dim);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.75rem;
+    }
+
+    nav a {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--silver-dim);
+    }
+
+    nav a:hover {
+      color: var(--silver-bright);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--silver-bright);
+      font-size: 1.25rem;
+      padding: 0.35rem 0.6rem;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      padding: 5rem 0 4.5rem;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center top, rgba(168, 180, 192, 0.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-logo {
+      width: min(220px, 55vw);
+      margin: 0 auto 2rem;
+      filter: drop-shadow(0 4px 24px rgba(200, 200, 200, 0.15));
+    }
+
+    .hero h1 {
+      font-size: clamp(1.75rem, 5vw, 2.75rem);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero .tagline {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero p {
+      max-width: 540px;
+      margin: 0 auto 2rem;
+      color: var(--silver-dim);
+      font-size: 1.1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.85rem 2rem;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--gradient-metal);
+      color: #1a1a1a;
+      font-weight: 600;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(200, 200, 200, 0.2);
+      color: #111;
+    }
+
+    /* Sections */
+    section {
+      padding: 4.5rem 0;
+    }
+
+    section:nth-child(even) {
+      background: var(--bg-card);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.5rem, 3.5vw, 2rem);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-header .divider {
+      width: 60px;
+      height: 3px;
+      background: var(--gradient-metal);
+      margin: 0.75rem auto 0;
+    }
+
+    .section-header p {
+      color: var(--silver-dim);
+      max-width: 560px;
+      margin: 1rem auto 0;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .about-text p + p {
+      margin-top: 1rem;
+      color: var(--silver-dim);
+    }
+
+    .about-badge {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .about-badge img {
+      width: 140px;
+      margin: 0 auto 1rem;
+      opacity: 0.9;
+    }
+
+    .about-badge h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .about-badge p {
+      color: var(--silver-dim);
+      font-size: 0.95rem;
+    }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.75rem 1.5rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .service-card:hover {
+      border-color: #555;
+      transform: translateY(-3px);
+    }
+
+    .service-icon {
+      font-size: 1.75rem;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .service-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .service-card p {
+      color: var(--silver-dim);
+      font-size: 0.95rem;
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+
+    .contact-item .icon {
+      font-size: 1.25rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .contact-item strong {
+      display: block;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--silver-dim);
+      margin-bottom: 0.15rem;
+    }
+
+    .contact-item span,
+    .contact-item a {
+      font-size: 1.05rem;
+    }
+
+    .contact-cta {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .contact-cta h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .contact-cta p {
+      color: var(--silver-dim);
+      margin-bottom: 1.5rem;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      text-align: center;
+      color: var(--silver-dim);
+      font-size: 0.9rem;
+    }
+
+    footer .brand {
+      font-family: 'Oswald', sans-serif;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--silver);
+      margin-bottom: 0.35rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: block;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(20, 20, 20, 0.97);
+        border-bottom: 1px solid var(--border);
+        padding: 1rem 0;
+      }
+
+      nav.open {
+        display: block;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      header {
+        position: relative;
+      }
+
+      .header-inner {
+        position: relative;
+      }
+
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 3.5rem 0 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container header-inner">
+      <a href="#" class="logo-link">
+        <img src="thorsamll.png" alt="Thor's Hammer Handyman logo">
+        <div class="logo-text">
+          Thor's Hammer
+          <span>Handyman Services</span>
+        </div>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('nav').classList.toggle('open')">&#9776;</button>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <img class="hero-logo" src="signal-2025-01-01-180916.png" alt="Thor's Hammer — Viking logo">
+      <h1>Ryan Overfield</h1>
+      <p class="tagline">Thor's Hammer Handyman</p>
+      <p>Dependable home repair done right. From small fixes to bigger projects, Ryan brings craftsmanship and reliability to every job.</p>
+      <a href="#contact" class="btn btn-primary">Get a Free Estimate</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <div class="section-header">
+        <h2>About Ryan</h2>
+        <div class="divider"></div>
+        <p>Local, trustworthy, and ready to tackle the repairs you've been putting off.</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>Hi, I'm Ryan Overfield — the handyman behind Thor's Hammer. I help homeowners with everyday repairs and improvements so you can get back to enjoying your space.</p>
+          <p>Whether it's a leaky faucet, a door that won't close, or a room that needs new tile, I show up on time, communicate clearly, and stand behind my work. No job is too small.</p>
+        </div>
+        <div class="about-badge">
+          <img src="thorsamll.png" alt="Thor's Hammer logo">
+          <h3>Built to Last</h3>
+          <p>Quality workmanship with the strength and reliability you can count on.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <div class="section-header">
+        <h2>Services</h2>
+        <div class="divider"></div>
+        <p>General handyman and home repair services for residential properties.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <span class="service-icon">&#128295;</span>
+          <h3>General Repairs</h3>
+          <p>Drywall patching, door adjustments, trim work, shelving, and the everyday fixes that keep your home running smoothly.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">&#128704;</span>
+          <h3>Plumbing &amp; Fixtures</h3>
+          <p>Faucet replacements, toilet repairs, leak fixes, and basic plumbing maintenance.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">&#9889;</span>
+          <h3>Electrical Basics</h3>
+          <p>Light fixture swaps, outlet covers, ceiling fan installs, and other minor electrical tasks.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">&#9638;</span>
+          <h3>Tiling &amp; Flooring</h3>
+          <p>Tile repair and installation, backsplash work, and basic flooring fixes.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">&#127968;</span>
+          <h3>Carpentry</h3>
+          <p>Deck boards, fence repairs, cabinet hardware, and custom woodwork for around the house.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">&#128736;</span>
+          <h3>Assembly &amp; Mounting</h3>
+          <p>Furniture assembly, TV mounting, curtain rods, and anything that needs a steady hand and the right tools.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="section-header">
+        <h2>Contact</h2>
+        <div class="divider"></div>
+        <p>Ready to get started? Reach out for a free estimate.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-item">
+            <span class="icon">&#128222;</span>
+            <div>
+              <strong>Phone</strong>
+              <a href="tel:+15555550100">(555) 555-0100</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="icon">&#9993;</span>
+            <div>
+              <strong>Email</strong>
+              <a href="mailto:ryan@example.com">ryan@example.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="icon">&#128205;</span>
+            <div>
+              <strong>Service Area</strong>
+              <span>[City, State] and surrounding areas</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="icon">&#128337;</span>
+            <div>
+              <strong>Hours</strong>
+              <span>Mon–Fri: 8:00 AM – 6:00 PM<br>Sat: By appointment</span>
+            </div>
+          </div>
+        </div>
+        <div class="contact-cta">
+          <h3>Let's Get It Fixed</h3>
+          <p>Call or email today to describe your project. Ryan will get back to you promptly with availability and a fair quote.</p>
+          <a href="tel:+15555550100" class="btn btn-primary">Call Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p class="brand">Thor's Hammer Handyman</p>
+      <p>&copy; 2026 Ryan Overfield. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
