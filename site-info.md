@@ -30,11 +30,11 @@ Fill in the fields below. Once complete, the values can be copied into `index.ht
 
 | Field | Placeholder | Your Value |
 |-------|-------------|------------|
-| **City** | [City] | |
-| **State** | [State] | |
+| **City** | [City] | Lincoln Park |
+| **State** | [State] | MI |
 | **ZIP / Postal Code** | [00000] | |
 | **Service radius** | _[e.g. "Within 30 miles of [City]"]_ | |
-| **Areas served** | _[List neighborhoods, towns, or counties]_ | |
+| **Areas served** | _[List neighborhoods, towns, or counties]_ | Lincoln Park, MI and surrounding areas |
 
 ---
 
