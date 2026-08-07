@@ -19,8 +19,8 @@ Fill in the fields below. Once complete, the values can be copied into `index.ht
 
 | Field | Placeholder | Your Value |
 |-------|-------------|------------|
-| **Phone** | (555) 555-0100 | |
-| **Email** | ryan@example.com | |
+| **Phone** | (555) 555-0100 | 734-512-3805 |
+| **Email** | ryan@example.com | Ryan@thorshammer.services |
 | **Text / SMS OK?** | Yes / No | |
 | **Preferred contact method** | Phone / Email / Text | |
 
