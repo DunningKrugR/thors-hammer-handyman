@@ -42,13 +42,7 @@ Fill in the fields below. Once complete, the values can be copied into `index.ht
 
 | Day | Hours |
 |-----|-------|
-| Monday | 8:00 AM – 6:00 PM |
-| Tuesday | 8:00 AM – 6:00 PM |
-| Wednesday | 8:00 AM – 6:00 PM |
-| Thursday | 8:00 AM – 6:00 PM |
-| Friday | 8:00 AM – 6:00 PM |
-| Saturday | By appointment |
-| Sunday | Closed |
+| All days | 24/7 — please call for an appointment |
 
 ---
 
